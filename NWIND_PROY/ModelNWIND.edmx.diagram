@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3183c38199094b8cbb6f3d7d03ca2a2b" Name="Diagram1">
+        <EntityTypeShape EntityType="NWINDModel.Categorías" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Clientes" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Compañías_de_envíos" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Detalles_de_pedidos" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Empleados" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Modulos" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Pedidos" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Perfiles" Width="1.5" PointX="5.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.PerfilesSubModulos" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Productos" Width="1.5" PointX="3" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Proveedores" Width="1.5" PointX="0.75" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.SubModulos" Width="1.5" PointX="10" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NWINDModel.Usuarios" Width="1.5" PointX="8" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="NWINDModel.Productos_CategoríasProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.Pedidos_ClientesPedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.Pedidos_Compañías_de_envíosPedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.Detalles_de_pedidos_PedidosDetalles_de_pedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.Detalles_de_pedidos_ProductosDetalles_de_pedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.Pedidos_EmpleadosPedidos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.FK_SubModulos_Modulos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.FK_Usuarios_Perfiles" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.Productos_ProveedoresProductos" ManuallyRouted="false" />
+        <AssociationConnector Association="NWINDModel.FK_PerfilesSubModulos_PerfilesSubModulos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

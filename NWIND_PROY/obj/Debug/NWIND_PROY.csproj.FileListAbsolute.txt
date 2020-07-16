@@ -1,0 +1,32 @@
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\NWIND_PROY.exe.config
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.csprojResolveAssemblyReference.cache
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.Form1.resources
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.Properties.Resources.resources
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.csproj.GenerateResource.Cache
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\NWIND_PROY.exe
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\NWIND_PROY.pdb
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.dll
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.xml
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.exe
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.pdb
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.Login.resources
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.frmPerfiles.resources
+C:\Users\Ariel\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.frmUsuarios.resources
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\NWIND_PROY.exe.config
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.exe
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.pdb
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.csprojResolveAssemblyReference.cache
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.Form1.resources
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.frmPerfiles.resources
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.frmUsuarios.resources
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.Login.resources
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.Properties.Resources.resources
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\obj\Debug\NWIND_PROY.csproj.GenerateResource.Cache
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\NWIND_PROY.exe
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\NWIND_PROY.pdb
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.dll
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.xml
+C:\Users\Ariel Torres\Desktop\Prog. Negocios\NWIND_PROY\NWIND_PROY\bin\Debug\EntityFramework.SqlServer.xml

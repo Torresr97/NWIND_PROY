@@ -1,0 +1,926 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NWINDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categorías">
+          <Key>
+            <PropertyRef Name="IdCategoría" />
+          </Key>
+          <Property Name="IdCategoría" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCategoría" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Descripción" Type="varchar(max)" />
+          <Property Name="Imagen" Type="varbinary(max)" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="NombreCompañía" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NombreContacto" Type="varchar" MaxLength="30" />
+          <Property Name="CargoContacto" Type="varchar" MaxLength="30" />
+          <Property Name="Dirección" Type="varchar" MaxLength="60" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="15" />
+          <Property Name="Región" Type="varchar" MaxLength="15" />
+          <Property Name="CódPostal" Type="varchar" MaxLength="10" />
+          <Property Name="País" Type="varchar" MaxLength="15" />
+          <Property Name="Teléfono" Type="varchar" MaxLength="24" />
+          <Property Name="Fax" Type="varchar" MaxLength="24" />
+        </EntityType>
+        <EntityType Name="Compañías de envíos">
+          <Key>
+            <PropertyRef Name="IdCompañíaEnvíos" />
+          </Key>
+          <Property Name="IdCompañíaEnvíos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCompañía" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Teléfono" Type="varchar" MaxLength="24" />
+        </EntityType>
+        <EntityType Name="Detalles de pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdPedido" Type="int" Nullable="false" />
+          <Property Name="IdProducto" Type="int" Nullable="false" />
+          <Property Name="PrecioUnidad" Type="money" Nullable="false" />
+          <Property Name="Cantidad" Type="smallint" Nullable="false" />
+          <Property Name="Descuento" Type="real" Nullable="false" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Cargo" Type="varchar" MaxLength="30" />
+          <Property Name="Tratamiento" Type="varchar" MaxLength="25" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="FechaContratación" Type="datetime" />
+          <Property Name="Dirección" Type="varchar" MaxLength="60" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="15" />
+          <Property Name="Región" Type="varchar" MaxLength="15" />
+          <Property Name="CódPostal" Type="varchar" MaxLength="10" />
+          <Property Name="País" Type="varchar" MaxLength="15" />
+          <Property Name="TelDomicilio" Type="varchar" MaxLength="24" />
+          <Property Name="Extensión" Type="varchar" MaxLength="4" />
+          <Property Name="Foto" Type="varbinary(max)" />
+          <Property Name="Notas" Type="varchar(max)" />
+          <Property Name="Jefe" Type="int" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="PKModuloId" />
+          </Key>
+          <Property Name="PKModuloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ModuloDescripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ModuloEstado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdCliente" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="IdEmpleado" Type="int" />
+          <Property Name="FechaPedido" Type="datetime" />
+          <Property Name="FechaEntrega" Type="datetime" />
+          <Property Name="FechaEnvío" Type="datetime" />
+          <Property Name="FormaEnvío" Type="int" />
+          <Property Name="Cargo" Type="money" />
+          <Property Name="Destinatario" Type="varchar" MaxLength="40" />
+          <Property Name="DirecciónDestinatario" Type="varchar" MaxLength="60" />
+          <Property Name="CiudadDestinatario" Type="varchar" MaxLength="15" />
+          <Property Name="RegiónDestinatario" Type="varchar" MaxLength="15" />
+          <Property Name="CódPostalDestinatario" Type="varchar" MaxLength="10" />
+          <Property Name="PaísDestinatario" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="PKPerfilId" />
+          </Key>
+          <Property Name="PKPerfilId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PerfilDescripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PerfilEstado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PerfilesSubModulos">
+          <Key>
+            <PropertyRef Name="FKPerfilId" />
+            <PropertyRef Name="FKSubModuloId" />
+          </Key>
+          <Property Name="FKPerfilId" Type="bigint" Nullable="false" />
+          <Property Name="FKSubModuloId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreProducto" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="IdProveedor" Type="int" />
+          <Property Name="IdCategoría" Type="int" />
+          <Property Name="CantidadPorUnidad" Type="varchar" MaxLength="20" />
+          <Property Name="PrecioUnidad" Type="money" />
+          <Property Name="UnidadesEnExistencia" Type="smallint" />
+          <Property Name="UnidadesEnPedido" Type="smallint" />
+          <Property Name="NivelNuevoPedido" Type="smallint" />
+          <Property Name="Suspendido" Type="bit" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCompañía" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="NombreContacto" Type="varchar" MaxLength="30" />
+          <Property Name="CargoContacto" Type="varchar" MaxLength="30" />
+          <Property Name="Dirección" Type="varchar" MaxLength="60" />
+          <Property Name="Ciudad" Type="varchar" MaxLength="15" />
+          <Property Name="Región" Type="varchar" MaxLength="15" />
+          <Property Name="CódPostal" Type="varchar" MaxLength="10" />
+          <Property Name="País" Type="varchar" MaxLength="15" />
+          <Property Name="Teléfono" Type="varchar" MaxLength="24" />
+          <Property Name="Fax" Type="varchar" MaxLength="24" />
+          <Property Name="PáginaPrincipal" Type="varchar(max)" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SubModulos">
+          <Key>
+            <PropertyRef Name="PKSubModuloId" />
+          </Key>
+          <Property Name="PKSubModuloId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SubModuloDescripcion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FKModuloId" Type="int" Nullable="false" />
+          <Property Name="SubModuloEstado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="PKUsuarioId" />
+          </Key>
+          <Property Name="PKUsuarioId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Usuario" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="UsuarioNombre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Contrasenia" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FKPerfilId" Type="bigint" Nullable="false" />
+        </EntityType>
+        <Association Name="Detalles de pedidos$PedidosDetalles de pedidos">
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detalles de pedidos" Type="Self.Detalles de pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedidos">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Detalles de pedidos">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Detalles de pedidos$ProductosDetalles de pedidos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Detalles de pedidos" Type="Self.Detalles de pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Detalles de pedidos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfilesSubModulos_PerfilesSubModulos">
+          <End Role="PerfilesSubModulos" Type="Self.PerfilesSubModulos" Multiplicity="1" />
+          <End Role="PerfilesSubModulos1" Type="Self.PerfilesSubModulos" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilesSubModulos">
+              <PropertyRef Name="FKPerfilId" />
+              <PropertyRef Name="FKSubModuloId" />
+            </Principal>
+            <Dependent Role="PerfilesSubModulos1">
+              <PropertyRef Name="FKPerfilId" />
+              <PropertyRef Name="FKSubModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModulos_Modulos">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+          <End Role="SubModulos" Type="Self.SubModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="PKModuloId" />
+            </Principal>
+            <Dependent Role="SubModulos">
+              <PropertyRef Name="FKModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Perfiles">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="PKPerfilId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="FKPerfilId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pedidos$ClientesPedidos">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pedidos$Compañías de envíosPedidos">
+          <End Role="Compañías de envíos" Type="Self.Compañías de envíos" Multiplicity="0..1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compañías de envíos">
+              <PropertyRef Name="IdCompañíaEnvíos" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="FormaEnvío" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pedidos$EmpleadosPedidos">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Productos$CategoríasProductos">
+          <End Role="Categorías" Type="Self.Categorías" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorías">
+              <PropertyRef Name="IdCategoría" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdCategoría" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Productos$ProveedoresProductos">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NWINDModelStoreContainer">
+          <EntitySet Name="Categorías" EntityType="Self.Categorías" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Compañías de envíos" EntityType="Self.Compañías de envíos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Detalles de pedidos" EntityType="Self.Detalles de pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilesSubModulos" EntityType="Self.PerfilesSubModulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubModulos" EntityType="Self.SubModulos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Detalles de pedidos$PedidosDetalles de pedidos" Association="Self.Detalles de pedidos$PedidosDetalles de pedidos">
+            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="Detalles de pedidos" EntitySet="Detalles de pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Detalles de pedidos$ProductosDetalles de pedidos" Association="Self.Detalles de pedidos$ProductosDetalles de pedidos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Detalles de pedidos" EntitySet="Detalles de pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfilesSubModulos_PerfilesSubModulos" Association="Self.FK_PerfilesSubModulos_PerfilesSubModulos">
+            <End Role="PerfilesSubModulos" EntitySet="PerfilesSubModulos" />
+            <End Role="PerfilesSubModulos1" EntitySet="PerfilesSubModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModulos_Modulos" Association="Self.FK_SubModulos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="SubModulos" EntitySet="SubModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Perfiles" Association="Self.FK_Usuarios_Perfiles">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="Pedidos$ClientesPedidos" Association="Self.Pedidos$ClientesPedidos">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Pedidos$Compañías de envíosPedidos" Association="Self.Pedidos$Compañías de envíosPedidos">
+            <End Role="Compañías de envíos" EntitySet="Compañías de envíos" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Pedidos$EmpleadosPedidos" Association="Self.Pedidos$EmpleadosPedidos">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Productos$CategoríasProductos" Association="Self.Productos$CategoríasProductos">
+            <End Role="Categorías" EntitySet="Categorías" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="Productos$ProveedoresProductos" Association="Self.Productos$ProveedoresProductos">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NWINDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Categorías">
+          <Key>
+            <PropertyRef Name="IdCategoría" />
+          </Key>
+          <Property Name="IdCategoría" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCategoría" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripción" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Productos" Relationship="Self.Productos_CategoríasProductos" FromRole="Categorías" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="IdCliente" />
+          </Key>
+          <Property Name="IdCliente" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCompañía" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CargoContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Dirección" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Región" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CódPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="País" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Teléfono" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pedidos" Relationship="Self.Pedidos_ClientesPedidos" FromRole="Clientes" ToRole="Pedidos" />
+        </EntityType>
+        <EntityType Name="Compañías_de_envíos">
+          <Key>
+            <PropertyRef Name="IdCompañíaEnvíos" />
+          </Key>
+          <Property Name="IdCompañíaEnvíos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCompañía" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teléfono" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Pedidos" Relationship="Self.Pedidos_Compañías_de_envíosPedidos" FromRole="Compañías_de_envíos" ToRole="Pedidos" />
+        </EntityType>
+        <EntityType Name="Detalles_de_pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdPedido" Type="Int32" Nullable="false" />
+          <Property Name="IdProducto" Type="Int32" Nullable="false" />
+          <Property Name="PrecioUnidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Cantidad" Type="Int16" Nullable="false" />
+          <Property Name="Descuento" Type="Single" Nullable="false" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Pedidos" Relationship="Self.Detalles_de_pedidos_PedidosDetalles_de_pedidos" FromRole="Detalles_de_pedidos" ToRole="Pedidos" />
+          <NavigationProperty Name="Productos" Relationship="Self.Detalles_de_pedidos_ProductosDetalles_de_pedidos" FromRole="Detalles_de_pedidos" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="Empleados">
+          <Key>
+            <PropertyRef Name="IdEmpleado" />
+          </Key>
+          <Property Name="IdEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Apellidos" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cargo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Tratamiento" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="FechaContratación" Type="DateTime" Precision="3" />
+          <Property Name="Dirección" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Región" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CódPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="País" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TelDomicilio" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="Extensión" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Notas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Jefe" Type="Int32" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Pedidos" Relationship="Self.Pedidos_EmpleadosPedidos" FromRole="Empleados" ToRole="Pedidos" />
+        </EntityType>
+        <EntityType Name="Modulos">
+          <Key>
+            <PropertyRef Name="PKModuloId" />
+          </Key>
+          <Property Name="PKModuloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ModuloDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModuloEstado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SubModulos" Relationship="Self.FK_SubModulos_Modulos" FromRole="Modulos" ToRole="SubModulos" />
+        </EntityType>
+        <EntityType Name="Pedidos">
+          <Key>
+            <PropertyRef Name="IdPedido" />
+          </Key>
+          <Property Name="IdPedido" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdCliente" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdEmpleado" Type="Int32" />
+          <Property Name="FechaPedido" Type="DateTime" Precision="3" />
+          <Property Name="FechaEntrega" Type="DateTime" Precision="3" />
+          <Property Name="FechaEnvío" Type="DateTime" Precision="3" />
+          <Property Name="FormaEnvío" Type="Int32" />
+          <Property Name="Cargo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Destinatario" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="DirecciónDestinatario" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CiudadDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RegiónDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CódPostalDestinatario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PaísDestinatario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Clientes" Relationship="Self.Pedidos_ClientesPedidos" FromRole="Pedidos" ToRole="Clientes" />
+          <NavigationProperty Name="Compañías_de_envíos" Relationship="Self.Pedidos_Compañías_de_envíosPedidos" FromRole="Pedidos" ToRole="Compañías_de_envíos" />
+          <NavigationProperty Name="Detalles_de_pedidos" Relationship="Self.Detalles_de_pedidos_PedidosDetalles_de_pedidos" FromRole="Pedidos" ToRole="Detalles_de_pedidos" />
+          <NavigationProperty Name="Empleados" Relationship="Self.Pedidos_EmpleadosPedidos" FromRole="Pedidos" ToRole="Empleados" />
+        </EntityType>
+        <EntityType Name="Perfiles">
+          <Key>
+            <PropertyRef Name="PKPerfilId" />
+          </Key>
+          <Property Name="PKPerfilId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PerfilDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PerfilEstado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Perfiles" FromRole="Perfiles" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="PerfilesSubModulos">
+          <Key>
+            <PropertyRef Name="FKPerfilId" />
+            <PropertyRef Name="FKSubModuloId" />
+          </Key>
+          <Property Name="FKPerfilId" Type="Int64" Nullable="false" />
+          <Property Name="FKSubModuloId" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="Boolean" />
+          <NavigationProperty Name="PerfilesSubModulos1" Relationship="NWINDModel.FK_PerfilesSubModulos_PerfilesSubModulos" FromRole="PerfilesSubModulos" ToRole="PerfilesSubModulos1" />
+          <NavigationProperty Name="PerfilesSubModulos2" Relationship="NWINDModel.FK_PerfilesSubModulos_PerfilesSubModulos" FromRole="PerfilesSubModulos1" ToRole="PerfilesSubModulos" />
+        </EntityType>
+        <EntityType Name="Productos">
+          <Key>
+            <PropertyRef Name="IdProducto" />
+          </Key>
+          <Property Name="IdProducto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreProducto" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdProveedor" Type="Int32" />
+          <Property Name="IdCategoría" Type="Int32" />
+          <Property Name="CantidadPorUnidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PrecioUnidad" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnidadesEnExistencia" Type="Int16" />
+          <Property Name="UnidadesEnPedido" Type="Int16" />
+          <Property Name="NivelNuevoPedido" Type="Int16" />
+          <Property Name="Suspendido" Type="Boolean" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Categorías" Relationship="Self.Productos_CategoríasProductos" FromRole="Productos" ToRole="Categorías" />
+          <NavigationProperty Name="Detalles_de_pedidos" Relationship="Self.Detalles_de_pedidos_ProductosDetalles_de_pedidos" FromRole="Productos" ToRole="Detalles_de_pedidos" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.Productos_ProveedoresProductos" FromRole="Productos" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="IdProveedor" />
+          </Key>
+          <Property Name="IdProveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCompañía" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CargoContacto" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Dirección" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Región" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CódPostal" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="País" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Teléfono" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="PáginaPrincipal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Productos" Relationship="Self.Productos_ProveedoresProductos" FromRole="Proveedores" ToRole="Productos" />
+        </EntityType>
+        <EntityType Name="SubModulos">
+          <Key>
+            <PropertyRef Name="PKSubModuloId" />
+          </Key>
+          <Property Name="PKSubModuloId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SubModuloDescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FKModuloId" Type="Int32" Nullable="false" />
+          <Property Name="SubModuloEstado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Modulos" Relationship="Self.FK_SubModulos_Modulos" FromRole="SubModulos" ToRole="Modulos" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="PKUsuarioId" />
+          </Key>
+          <Property Name="PKUsuarioId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UsuarioNombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Contrasenia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FKPerfilId" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Perfiles" Relationship="Self.FK_Usuarios_Perfiles" FromRole="Usuarios" ToRole="Perfiles" />
+        </EntityType>
+        <Association Name="Productos_CategoríasProductos">
+          <End Role="Categorías" Type="Self.Categorías" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categorías">
+              <PropertyRef Name="IdCategoría" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdCategoría" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pedidos_ClientesPedidos">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="IdCliente" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pedidos_Compañías_de_envíosPedidos">
+          <End Role="Compañías_de_envíos" Type="Self.Compañías_de_envíos" Multiplicity="0..1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compañías_de_envíos">
+              <PropertyRef Name="IdCompañíaEnvíos" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="FormaEnvío" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Detalles_de_pedidos_PedidosDetalles_de_pedidos">
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Detalles_de_pedidos" Type="Self.Detalles_de_pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pedidos">
+              <PropertyRef Name="IdPedido" />
+            </Principal>
+            <Dependent Role="Detalles_de_pedidos">
+              <PropertyRef Name="IdPedido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Detalles_de_pedidos_ProductosDetalles_de_pedidos">
+          <End Role="Productos" Type="Self.Productos" Multiplicity="1" />
+          <End Role="Detalles_de_pedidos" Type="Self.Detalles_de_pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Productos">
+              <PropertyRef Name="IdProducto" />
+            </Principal>
+            <Dependent Role="Detalles_de_pedidos">
+              <PropertyRef Name="IdProducto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Pedidos_EmpleadosPedidos">
+          <End Role="Empleados" Type="Self.Empleados" Multiplicity="0..1" />
+          <End Role="Pedidos" Type="Self.Pedidos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleados">
+              <PropertyRef Name="IdEmpleado" />
+            </Principal>
+            <Dependent Role="Pedidos">
+              <PropertyRef Name="IdEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubModulos_Modulos">
+          <End Role="Modulos" Type="Self.Modulos" Multiplicity="1" />
+          <End Role="SubModulos" Type="Self.SubModulos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Modulos">
+              <PropertyRef Name="PKModuloId" />
+            </Principal>
+            <Dependent Role="SubModulos">
+              <PropertyRef Name="FKModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Perfiles">
+          <End Role="Perfiles" Type="Self.Perfiles" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perfiles">
+              <PropertyRef Name="PKPerfilId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="FKPerfilId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Productos_ProveedoresProductos">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="Productos" Type="Self.Productos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="IdProveedor" />
+            </Principal>
+            <Dependent Role="Productos">
+              <PropertyRef Name="IdProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EntityNWIND" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categorías" EntityType="Self.Categorías" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Compañías_de_envíos" EntityType="Self.Compañías_de_envíos" />
+          <EntitySet Name="Detalles_de_pedidos" EntityType="Self.Detalles_de_pedidos" />
+          <EntitySet Name="Empleados" EntityType="Self.Empleados" />
+          <EntitySet Name="Modulos" EntityType="Self.Modulos" />
+          <EntitySet Name="Pedidos" EntityType="Self.Pedidos" />
+          <EntitySet Name="Perfiles" EntityType="Self.Perfiles" />
+          <EntitySet Name="PerfilesSubModulos" EntityType="Self.PerfilesSubModulos" />
+          <EntitySet Name="Productos" EntityType="Self.Productos" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
+          <EntitySet Name="SubModulos" EntityType="Self.SubModulos" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="Productos_CategoríasProductos" Association="Self.Productos_CategoríasProductos">
+            <End Role="Categorías" EntitySet="Categorías" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="Pedidos_ClientesPedidos" Association="Self.Pedidos_ClientesPedidos">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Pedidos_Compañías_de_envíosPedidos" Association="Self.Pedidos_Compañías_de_envíosPedidos">
+            <End Role="Compañías_de_envíos" EntitySet="Compañías_de_envíos" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Detalles_de_pedidos_PedidosDetalles_de_pedidos" Association="Self.Detalles_de_pedidos_PedidosDetalles_de_pedidos">
+            <End Role="Pedidos" EntitySet="Pedidos" />
+            <End Role="Detalles_de_pedidos" EntitySet="Detalles_de_pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Detalles_de_pedidos_ProductosDetalles_de_pedidos" Association="Self.Detalles_de_pedidos_ProductosDetalles_de_pedidos">
+            <End Role="Productos" EntitySet="Productos" />
+            <End Role="Detalles_de_pedidos" EntitySet="Detalles_de_pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="Pedidos_EmpleadosPedidos" Association="Self.Pedidos_EmpleadosPedidos">
+            <End Role="Empleados" EntitySet="Empleados" />
+            <End Role="Pedidos" EntitySet="Pedidos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubModulos_Modulos" Association="Self.FK_SubModulos_Modulos">
+            <End Role="Modulos" EntitySet="Modulos" />
+            <End Role="SubModulos" EntitySet="SubModulos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Perfiles" Association="Self.FK_Usuarios_Perfiles">
+            <End Role="Perfiles" EntitySet="Perfiles" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="Productos_ProveedoresProductos" Association="Self.Productos_ProveedoresProductos">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Productos" EntitySet="Productos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfilesSubModulos_PerfilesSubModulos" Association="NWINDModel.FK_PerfilesSubModulos_PerfilesSubModulos">
+            <End Role="PerfilesSubModulos" EntitySet="PerfilesSubModulos" />
+            <End Role="PerfilesSubModulos1" EntitySet="PerfilesSubModulos" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_PerfilesSubModulos_PerfilesSubModulos">
+          <End Type="NWINDModel.PerfilesSubModulos" Role="PerfilesSubModulos" Multiplicity="1" />
+          <End Type="NWINDModel.PerfilesSubModulos" Role="PerfilesSubModulos1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilesSubModulos">
+              <PropertyRef Name="FKPerfilId" />
+              <PropertyRef Name="FKSubModuloId" />
+            </Principal>
+            <Dependent Role="PerfilesSubModulos1">
+              <PropertyRef Name="FKPerfilId" />
+              <PropertyRef Name="FKSubModuloId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NWINDModelStoreContainer" CdmEntityContainer="EntityNWIND">
+          <EntitySetMapping Name="Categorías">
+            <EntityTypeMapping TypeName="NWINDModel.Categorías">
+              <MappingFragment StoreEntitySet="Categorías">
+                <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+                <ScalarProperty Name="NombreCategoría" ColumnName="NombreCategoría" />
+                <ScalarProperty Name="Descripción" ColumnName="Descripción" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="NWINDModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="NombreCompañía" ColumnName="NombreCompañía" />
+                <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+                <ScalarProperty Name="CargoContacto" ColumnName="CargoContacto" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Región" ColumnName="Región" />
+                <ScalarProperty Name="CódPostal" ColumnName="CódPostal" />
+                <ScalarProperty Name="País" ColumnName="País" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compañías_de_envíos">
+            <EntityTypeMapping TypeName="NWINDModel.Compañías_de_envíos">
+              <MappingFragment StoreEntitySet="Compañías de envíos">
+                <ScalarProperty Name="IdCompañíaEnvíos" ColumnName="IdCompañíaEnvíos" />
+                <ScalarProperty Name="NombreCompañía" ColumnName="NombreCompañía" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalles_de_pedidos">
+            <EntityTypeMapping TypeName="NWINDModel.Detalles_de_pedidos">
+              <MappingFragment StoreEntitySet="Detalles de pedidos">
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Descuento" ColumnName="Descuento" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleados">
+            <EntityTypeMapping TypeName="NWINDModel.Empleados">
+              <MappingFragment StoreEntitySet="Empleados">
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Tratamiento" ColumnName="Tratamiento" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="FechaContratación" ColumnName="FechaContratación" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Región" ColumnName="Región" />
+                <ScalarProperty Name="CódPostal" ColumnName="CódPostal" />
+                <ScalarProperty Name="País" ColumnName="País" />
+                <ScalarProperty Name="TelDomicilio" ColumnName="TelDomicilio" />
+                <ScalarProperty Name="Extensión" ColumnName="Extensión" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Notas" ColumnName="Notas" />
+                <ScalarProperty Name="Jefe" ColumnName="Jefe" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Modulos">
+            <EntityTypeMapping TypeName="NWINDModel.Modulos">
+              <MappingFragment StoreEntitySet="Modulos">
+                <ScalarProperty Name="PKModuloId" ColumnName="PKModuloId" />
+                <ScalarProperty Name="ModuloDescripcion" ColumnName="ModuloDescripcion" />
+                <ScalarProperty Name="ModuloEstado" ColumnName="ModuloEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pedidos">
+            <EntityTypeMapping TypeName="NWINDModel.Pedidos">
+              <MappingFragment StoreEntitySet="Pedidos">
+                <ScalarProperty Name="IdPedido" ColumnName="IdPedido" />
+                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+                <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+                <ScalarProperty Name="FechaPedido" ColumnName="FechaPedido" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="FechaEnvío" ColumnName="FechaEnvío" />
+                <ScalarProperty Name="FormaEnvío" ColumnName="FormaEnvío" />
+                <ScalarProperty Name="Cargo" ColumnName="Cargo" />
+                <ScalarProperty Name="Destinatario" ColumnName="Destinatario" />
+                <ScalarProperty Name="DirecciónDestinatario" ColumnName="DirecciónDestinatario" />
+                <ScalarProperty Name="CiudadDestinatario" ColumnName="CiudadDestinatario" />
+                <ScalarProperty Name="RegiónDestinatario" ColumnName="RegiónDestinatario" />
+                <ScalarProperty Name="CódPostalDestinatario" ColumnName="CódPostalDestinatario" />
+                <ScalarProperty Name="PaísDestinatario" ColumnName="PaísDestinatario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perfiles">
+            <EntityTypeMapping TypeName="NWINDModel.Perfiles">
+              <MappingFragment StoreEntitySet="Perfiles">
+                <ScalarProperty Name="PKPerfilId" ColumnName="PKPerfilId" />
+                <ScalarProperty Name="PerfilDescripcion" ColumnName="PerfilDescripcion" />
+                <ScalarProperty Name="PerfilEstado" ColumnName="PerfilEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilesSubModulos">
+            <EntityTypeMapping TypeName="NWINDModel.PerfilesSubModulos">
+              <MappingFragment StoreEntitySet="PerfilesSubModulos">
+                <ScalarProperty Name="FKPerfilId" ColumnName="FKPerfilId" />
+                <ScalarProperty Name="FKSubModuloId" ColumnName="FKSubModuloId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Productos">
+            <EntityTypeMapping TypeName="NWINDModel.Productos">
+              <MappingFragment StoreEntitySet="Productos">
+                <ScalarProperty Name="IdProducto" ColumnName="IdProducto" />
+                <ScalarProperty Name="NombreProducto" ColumnName="NombreProducto" />
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="IdCategoría" ColumnName="IdCategoría" />
+                <ScalarProperty Name="CantidadPorUnidad" ColumnName="CantidadPorUnidad" />
+                <ScalarProperty Name="PrecioUnidad" ColumnName="PrecioUnidad" />
+                <ScalarProperty Name="UnidadesEnExistencia" ColumnName="UnidadesEnExistencia" />
+                <ScalarProperty Name="UnidadesEnPedido" ColumnName="UnidadesEnPedido" />
+                <ScalarProperty Name="NivelNuevoPedido" ColumnName="NivelNuevoPedido" />
+                <ScalarProperty Name="Suspendido" ColumnName="Suspendido" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="NWINDModel.Proveedores">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="IdProveedor" ColumnName="IdProveedor" />
+                <ScalarProperty Name="NombreCompañía" ColumnName="NombreCompañía" />
+                <ScalarProperty Name="NombreContacto" ColumnName="NombreContacto" />
+                <ScalarProperty Name="CargoContacto" ColumnName="CargoContacto" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Región" ColumnName="Región" />
+                <ScalarProperty Name="CódPostal" ColumnName="CódPostal" />
+                <ScalarProperty Name="País" ColumnName="País" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="PáginaPrincipal" ColumnName="PáginaPrincipal" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubModulos">
+            <EntityTypeMapping TypeName="NWINDModel.SubModulos">
+              <MappingFragment StoreEntitySet="SubModulos">
+                <ScalarProperty Name="PKSubModuloId" ColumnName="PKSubModuloId" />
+                <ScalarProperty Name="SubModuloDescripcion" ColumnName="SubModuloDescripcion" />
+                <ScalarProperty Name="FKModuloId" ColumnName="FKModuloId" />
+                <ScalarProperty Name="SubModuloEstado" ColumnName="SubModuloEstado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="NWINDModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="PKUsuarioId" ColumnName="PKUsuarioId" />
+                <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+                <ScalarProperty Name="UsuarioNombre" ColumnName="UsuarioNombre" />
+                <ScalarProperty Name="Contrasenia" ColumnName="Contrasenia" />
+                <ScalarProperty Name="FKPerfilId" ColumnName="FKPerfilId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
